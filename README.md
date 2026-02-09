@@ -76,3 +76,13 @@ CREATE OR REPLACE TABLE evident-axle-339820.nytaxi.yellow_tripdata_non_partition
 SELECT * FROM evident-axle-339820.nytaxi.external_yellow_tripdata
 ;
 ```
+
+```sql
+-- Q2 What is the estimated amount of data that will be read when this query is executed on the External Table and the Table?
+SELECT  COUNT (DISTINCT PULocationID)
+-- FROM `evident-axle-339820.nytaxi.external_yellow_tripdata`
+FROM evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned
+
+-- answer - 262 PULocationIDs, 0B from external and 155.12 MB when run on non-partitioned materialised table
+;
+```
