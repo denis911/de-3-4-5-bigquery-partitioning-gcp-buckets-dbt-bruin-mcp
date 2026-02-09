@@ -1,0 +1,10 @@
+[project]
+name = "de-3-4-5-bigquery-partitioning-gcp-buckets-dbt-bruin-mcp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "google-cloud-storage",
+    "google-api-core",
+]
