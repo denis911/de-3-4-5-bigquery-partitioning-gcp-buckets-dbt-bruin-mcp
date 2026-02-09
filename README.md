@@ -47,3 +47,16 @@ Edit `load_yellow_taxi_data.py` to customize:
 - `MONTHS` - List of months to download
 - `DOWNLOAD_DIR` - Local download directory
 - `CHUNK_SIZE` - Upload chunk size
+
+## Bigquery - playing with SQL
+
+```sql
+-- Start with creating external table from Parquet files:
+-- Creating external table referring to gcs path
+CREATE OR REPLACE EXTERNAL TABLE `evident-axle-339820.nytaxi.external_yellow_tripdata`
+OPTIONS (
+  format = 'parquet',
+  uris = ['gs://evident-axle-339820-hw3-2025/yellow_tripdata_2024-*.parquet']
+)
+;
+```
