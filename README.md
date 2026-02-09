@@ -145,3 +145,13 @@ WHERE DATE(tpep_pickup_datetime) BETWEEN '2024-03-01' AND '2024-03-15'
 -- part - will process 26.85 MB when run.
 ;
 ```
+
+```sql
+-- Q9. Write a `SELECT count(*)` query FROM the materialized table you created. 
+-- How many bytes does it estimate will be read? Why?
+SELECT COUNT(*)
+FROM evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned
+-- This query will process 0 B when run. 
+-- Look at table info - Number of rows 20,332,093
+;
+```
