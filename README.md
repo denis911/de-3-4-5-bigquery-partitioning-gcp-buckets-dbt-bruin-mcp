@@ -135,3 +135,13 @@ WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2019-06-30'
 ;
 ```
 
+```sql
+-- Q6 - query to retrieve the distinct VendorIDs between tpep_dropoff_datetime 2024-03-01 and 2024-03-15 (inclusive). 
+SELECT DISTINCT(VendorID)
+FROM evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned
+-- FROM evident-axle-339820.nytaxi.yellow_tripdata_partitioned
+WHERE DATE(tpep_pickup_datetime) BETWEEN '2024-03-01' AND '2024-03-15'
+-- non-part -  process 310.24 MB when run
+-- part - will process 26.85 MB when run.
+;
+```
