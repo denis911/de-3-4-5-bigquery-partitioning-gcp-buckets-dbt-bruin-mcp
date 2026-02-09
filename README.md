@@ -69,3 +69,10 @@ FROM `evident-axle-339820.nytaxi.external_yellow_tripdata`
 -- answer - 20_332_093 - for the first half of 2024
 ;
 ```
+
+```sql
+-- Create a non partitioned table from external table
+CREATE OR REPLACE TABLE evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned AS
+SELECT * FROM evident-axle-339820.nytaxi.external_yellow_tripdata
+;
+```
