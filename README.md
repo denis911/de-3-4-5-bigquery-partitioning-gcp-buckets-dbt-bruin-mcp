@@ -86,3 +86,13 @@ FROM evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned
 -- answer - 262 PULocationIDs, 0B from external and 155.12 MB when run on non-partitioned materialised table
 ;
 ```
+
+```sql
+-- Q3
+SELECT  COUNT (DISTINCT PULocationID) AS count_pickup_location_id,
+        COUNT (DISTINCT DOLocationID) AS count_dropoff_location_id
+FROM evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned
+
+-- answer - query will process 310.24 MB when run - from 2 columns
+;
+```
