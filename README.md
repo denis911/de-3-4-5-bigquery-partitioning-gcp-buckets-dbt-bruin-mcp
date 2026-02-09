@@ -106,3 +106,30 @@ WHERE fare_amount = 0
 -- answer - 8333
 ;
 ```
+
+```sql
+-- Create a partitioned table from external table
+CREATE OR REPLACE TABLE evident-axle-339820.nytaxi.yellow_tripdata_partitioned
+PARTITION BY
+  DATE(tpep_pickup_datetime) AS
+SELECT * FROM evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned
+;
+```
+
+```sql
+-- Impact of partition
+-- Scanning 1.6GB of data?? This query will process 310.24 MB when run....
+SELECT DISTINCT(VendorID)
+FROM evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned
+WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2019-06-30'
+;
+```
+
+```sql
+-- Scanning ~106 MB of DATA?? This query will process 0 B when run.... 
+SELECT DISTINCT(VendorID)
+FROM evident-axle-339820.nytaxi.yellow_tripdata_partitioned
+WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2019-06-30'
+;
+```
+
