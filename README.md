@@ -9,12 +9,14 @@ This project loads NYC Yellow Taxi trip data from the TLC public dataset into a 
 ## Setup
 
 1. **Clone the repository:**
+
    ```bash
    git clone <repo-url>
    cd de-3-4-5-bigquery-partitioning-gcp-buckets-dbt-bruin-mcp
    ```
 
 2. **Install dependencies with uv:**
+
    ```bash
    uv sync
    ```
@@ -32,6 +34,7 @@ python load_yellow_taxi_data.py
 ```
 
 This will:
+
 - Download Yellow Taxi trip data (Jan-Jun 2024) from the NYC TLC public data portal
 - Upload the files to the configured GCS bucket
 - Verify successful uploads
@@ -39,6 +42,7 @@ This will:
 ## Configuration
 
 Edit `load_yellow_taxi_data.py` to customize:
+
 - `BUCKET_NAME` - Target GCS bucket
 - `MONTHS` - List of months to download
 - `DOWNLOAD_DIR` - Local download directory
