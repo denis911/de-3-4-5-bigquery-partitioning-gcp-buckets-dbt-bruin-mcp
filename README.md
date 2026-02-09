@@ -60,3 +60,12 @@ OPTIONS (
 )
 ;
 ```
+
+```sql
+-- Q1 What is count of records for the 2024 Yellow Taxi Data?
+SELECT  COUNT(*)
+FROM `evident-axle-339820.nytaxi.external_yellow_tripdata`
+
+-- answer - 20_332_093 - for the first half of 2024
+;
+```
