@@ -117,8 +117,9 @@ SELECT * FROM evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned
 ```
 
 ```sql
--- Impact of partition
--- Scanning 1.6GB of data?? This query will process 310.24 MB when run....
+-- Impact of partition - we have data only for 2024 but unpartitioned 
+-- table does not know it in advance, so it has to run a query.
+-- This query will process 310.24 MB when run.
 SELECT DISTINCT(VendorID)
 FROM evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned
 WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2019-06-30'
@@ -126,7 +127,8 @@ WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2019-06-30'
 ```
 
 ```sql
--- Scanning ~106 MB of DATA?? This query will process 0 B when run.... 
+-- This query will process 0 B when run:
+-- because we have data only for 2024, nothing for 2019 - this is why 0 B .
 SELECT DISTINCT(VendorID)
 FROM evident-axle-339820.nytaxi.yellow_tripdata_partitioned
 WHERE DATE(tpep_pickup_datetime) BETWEEN '2019-06-01' AND '2019-06-30'
