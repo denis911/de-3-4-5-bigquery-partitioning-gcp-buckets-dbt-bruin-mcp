@@ -96,3 +96,13 @@ FROM evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned
 -- answer - query will process 310.24 MB when run - from 2 columns
 ;
 ```
+
+```sql
+-- Q4 How many records have a fare_amount of 0?
+SELECT  COUNT(*) 
+FROM evident-axle-339820.nytaxi.yellow_tripdata_non_partitioned
+WHERE fare_amount = 0
+
+-- answer - 8333
+;
+```
