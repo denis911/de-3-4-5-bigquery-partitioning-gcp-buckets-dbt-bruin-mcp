@@ -1,6 +1,9 @@
 # all parquet data files for NY Yellow taxi 2024 - too big....
 *.parquet
 
+# all Duckdb dta files - too big:
+*.duckdb
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]

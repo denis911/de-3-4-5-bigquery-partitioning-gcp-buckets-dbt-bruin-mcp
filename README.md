@@ -318,6 +318,8 @@ if __name__ == "__main__":
 
 This script downloads yellow and green taxi data from 2019-2020, creates the `prod` schema, and loads the raw data into DuckDB. The download may take several minutes depending on your internet connection.
 
+!!! ATTENTION !!! Resulting ```taxi_rides_ny\taxi_rides_ny.duckdb``` file is about 3GB in size - add .duckdb to gitignore - DO NOT COMMIT it to github...
+
 ### Step 5: Test the dbt Connection
 
 Verify dbt can connect to your DuckDB database:
