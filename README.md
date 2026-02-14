@@ -372,3 +372,32 @@ Alternatively, install it from the [VS Code Marketplace](https://marketplace.vis
 * [dbt-duckdb Adapter](https://github.com/duckdb/dbt-duckdb)
 * [NYC Taxi Data Dictionary](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf)
 
+#### Run duckdb UI and see data ingested
+
+To launch the DuckDB UI from your uv environment and verify the ingested data:
+
+```bash
+# From the project root, run:
+uv run duckdb -ui taxi_rides_ny/taxi_rides_ny.duckdb
+```
+
+This will:
+
+1. Open DuckDB using the CLI from your uv environment
+2. Launch the built-in UI in your default browser
+3. Connect to the `taxi_rides_ny.duckdb` database file
+
+Once the UI opens, you can run SQL queries to verify the data, for example:
+
+```sql
+-- Check tables in the database
+SHOW TABLES;
+
+-- Count records in yellow_tripdata
+SELECT COUNT(*) FROM prod.yellow_tripdata;
+
+-- List schema
+SELECT * FROM information_schema.tables;
+```
+
+Alternatively run ```uv run verify_data.py``` to see if data is loaded.
