@@ -325,7 +325,7 @@ This script downloads yellow and green taxi data from 2019-2020, creates the `pr
 Verify dbt can connect to your DuckDB database:
 
 ```bash
-dbt debug
+uv run dbt debug
 ```
 
 ### Step 6: Install dbt Power User Extension (VS Code Users)
