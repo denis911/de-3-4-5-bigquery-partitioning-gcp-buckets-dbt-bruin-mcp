@@ -372,7 +372,7 @@ Alternatively, install it from the [VS Code Marketplace](https://marketplace.vis
 * [dbt-duckdb Adapter](https://github.com/duckdb/dbt-duckdb)
 * [NYC Taxi Data Dictionary](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf)
 
-#### Run duckdb UI and see data ingested
+### Step 7: Run duckdb UI and see if data ingested properly
 
 To launch the DuckDB UI from your uv environment and verify the ingested data:
 
