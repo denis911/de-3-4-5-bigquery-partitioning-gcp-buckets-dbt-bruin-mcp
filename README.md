@@ -198,6 +198,8 @@ This installs:
 ### Step 3: Configure dbt Profile
 
 Since this repository already contains a dbt project (`taxi_rides_ny/`), you don't need to run `dbt init`. Instead, you need to configure your dbt profile to connect to DuckDB.
+To copy ``` https://github.com/DataTalksClub/data-engineering-zoomcamp/tree/main/04-analytics-engineering/taxi_rides_ny ``` from github as a zip file I use ``` https://download-directory.github.io/ ``` website - just copy/paste the folder url and unzip the directory later.
+
 
 #### Create or Update `~/.dbt/profiles.yml`
 
@@ -216,7 +218,7 @@ taxi_rides_ny:
       extensions:
         - parquet
       settings:
-        memory_limit: '4GB'
+        memory_limit: '8GB'
         preserve_insertion_order: false
 
     # DuckDB Production profile
@@ -228,7 +230,7 @@ taxi_rides_ny:
       extensions:
         - parquet
       settings:
-        memory_limit: '4GB'
+        memory_limit: '8GB'
         preserve_insertion_order: false
 
 # Troubleshooting:
