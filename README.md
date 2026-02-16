@@ -417,3 +417,8 @@ uv run dbt build
 ```
 
 Ideally it should finish without errors - read build errors if any...
+If no errors -
+
+```bash
+uv run dbt run
+```
