@@ -1,10 +1,16 @@
 # Table columns for future use with DBT
 
 We can use duckdb ui to connect and see what is inside our database,
-command is:
+command from vs code terminal is:
 
 ```bash
 uv run duckdb -ui taxi_rides_ny/taxi_rides_ny.duckdb
+```
+
+Or run it from windows terminal - use full file name:
+
+```
+duckdb -ui C:\tmp\de-3-4-5-bigquery-partitioning-gcp-buckets-dbt-bruin-mcp\taxi_rides_ny\taxi_rides_ny.duckdb
 ```
 
 After duckdb ui is connected, we can query our tables as:
