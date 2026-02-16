@@ -1,0 +1,10 @@
+version: 2
+
+sources: 
+  - name: raw
+    description: "Raw taxi trip data from NYC TLC"
+    database: taxi_rides_ny # from file taxi_rides_ny.duckdb
+    schema: prod # like in duckdb ui
+    tables: 
+      - name: yellow_tripdata
+      - name: green_tripdata

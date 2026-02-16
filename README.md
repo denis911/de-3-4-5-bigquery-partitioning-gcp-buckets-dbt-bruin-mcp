@@ -401,3 +401,19 @@ SELECT * FROM information_schema.tables;
 ```
 
 Alternatively run ```uv run verify_data.py``` to see if data is loaded.
+
+### Step 8: Check current config
+
+First cd to the directory with our DBT files:
+
+```bash
+cd taxi_rides_ny
+```
+
+Then try to run a test build from there:
+
+```bash
+uv run dbt build
+```
+
+Ideally it should finish without errors - read build errors if any...
