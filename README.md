@@ -422,3 +422,35 @@ If no errors -
 ```bash
 uv run dbt run
 ```
+
+Useful DBT commands are (as a list):
+(good idea to select a Python interpreter first from venv and cd taxi_rides_ny)
+
+```bash
+# 0. INIT - run once! - builds dbt project
+uv run dbt init
+
+# 1. DEBUG - checks database connection
+uv run dbt debug
+
+# 2. SEED - ingest, uploads or materialises seeds - in our case csv files for zones and ppayment types
+uv run dbt seed 
+
+# 3. RUN - less heavy than build - tries to compile models and materialise it
+uv run dbt run
+
+# 4. BUILD - heavy - builds all models + runs tests + materialises seeds.... etc etc
+uv run dbt build 
+
+# 5. DEPS - short for dependencies - installs packages
+uv run dbt deps 
+
+# 6. COMPILE - compiles sql files without jinja - ready to send to actual database engine - into target / compile folder - if I need to spot jinja errors...
+uv run dbt compile 
+
+# 7. TEST - run all tests from tests folder
+uv run dbt test 
+
+# 8. RETRY - starts from the point where last build failed.
+uv run dbt retry
+```
