@@ -454,3 +454,44 @@ uv run dbt test
 # 8. RETRY - starts from the point where last build failed.
 uv run dbt retry
 ```
+
+### Step 9: If all good - query the duckdb UI:
+
+After testing dbt build, you can build the prod models and materialise them into the duckdb database - this will create the final tables in the duckdb database. For me it required increasing RAM limits to 32GB - or it was giving errors about memory overflow.
+Please be patient - it can take 30 mins or so to build all models on average i5 PC.
+
+```bash
+uv run dbt build --select prod
+```
+
+Start testing with launching duckdb UI:
+
+```bash
+cd taxi_rides_ny
+uv run duckdb -ui taxi_rides_ny.duckdb
+```
+
+then you can run SQL queries to verify the data, for example:
+
+```sql
+-- Count of records in fct_monthly_zone_revenue?
+-- 12184
+SELECT COUNT(*)
+
+from taxi_rides_ny.prod.fct_monthly_zone_revenue
+```
+
+or 
+
+```sql
+-- Zone with highest revenue for Green taxis in 2020? 
+-- East Harlem North
+SELECT revenue_monthly_total_amount, pickup_zone
+FROM taxi_rides_ny.prod.fct_monthly_zone_revenue
+WHERE service_type = 'Green' 
+  and year(revenue_month) = 2020
+ORDER BY 1 DESC
+LIMIT 10
+
+```
+
