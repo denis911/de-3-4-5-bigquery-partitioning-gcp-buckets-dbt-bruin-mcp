@@ -10,7 +10,7 @@ taxi_rides_ny:
       extensions:
         - parquet
       settings:
-        memory_limit: "16GB"
+        memory_limit: "32GB"
         preserve_insertion_order: false
 
     # DuckDB Production profile
@@ -22,7 +22,7 @@ taxi_rides_ny:
       extensions:
         - parquet
       settings:
-        memory_limit: "16GB"
+        memory_limit: "32GB"
         preserve_insertion_order: false
 # Troubleshooting:
 # - If you have less than 4GB RAM, try setting memory_limit to '1GB'
