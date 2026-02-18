@@ -417,10 +417,10 @@ uv run dbt build
 ```
 
 Ideally it should finish without errors - read build errors if any...
-If no errors -
+If no errors - try to check a prod build:
 
 ```bash
-uv run dbt run
+uv run dbt run --select prod
 ```
 
 Useful DBT commands are (as a list):
@@ -458,7 +458,7 @@ uv run dbt retry
 ### Step 9: If all good - query the duckdb UI:
 
 After testing dbt build, you can build the prod models and materialise them into the duckdb database - this will create the final tables in the duckdb database. For me it required increasing RAM limits to 32GB - or it was giving errors about memory overflow.
-Please be patient - it can take 30 mins or so to build all models on average i5 PC.
+Please be patient - it can take 30 mins or so to build all tables on average i5 PC.
 
 ```bash
 uv run dbt build --select prod
@@ -521,13 +521,3 @@ WHERE service_type = 'Green'
   and year(pickup_datetime) = 2019
 
 ```
-
-or
-
-```sql
---
-
-```
-
-
-
