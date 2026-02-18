@@ -495,3 +495,39 @@ LIMIT 10
 
 ```
 
+or
+
+```sql
+-- Zone with highest revenue for Green taxis in 2020? 
+-- East Harlem North
+SELECT revenue_monthly_total_amount, pickup_zone
+FROM taxi_rides_ny.prod.fct_monthly_zone_revenue
+WHERE service_type = 'Green' 
+  and year(revenue_month) = 2020
+ORDER BY 1 DESC
+LIMIT 10
+
+```
+
+or
+
+```sql
+-- Total trips for Green taxis in October 2019?
+-- 384624
+SELECT COUNT(*)
+from taxi_rides_ny.prod.fct_trips
+WHERE service_type = 'Green' 
+  and month(pickup_datetime) = 10
+  and year(pickup_datetime) = 2019
+
+```
+
+or
+
+```sql
+--
+
+```
+
+
+
